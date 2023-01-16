@@ -2,7 +2,7 @@ import requests
 import argparse
 from bs4 import BeautifulSoup
 
-from constants import *
+from .constants import *
 
 
 class DuckDuckGo():
