@@ -6,13 +6,13 @@ requires = [
 ]
 
 setup(
-    name='basic_search',
+    name='simple-search',
     description=("Basic and simple Python search application."),
     version='1.0',
     install_requires=requires,
     packages=find_packages(),
     entry_points={
-        'console_scripts': ['basic-search=basic_search.search:main'],
+        'console_scripts': ['simple-search=simple_search.search:main'],
     },
     #long_description=open('README.md').read(),
     keywords=['search', 'google', 'duckduckgo']
