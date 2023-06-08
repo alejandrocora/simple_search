@@ -2,7 +2,7 @@ import requests
 import argparse
 from bs4 import BeautifulSoup
 
-from .constants import *
+from simple_search.constants import *
 
 
 class DuckDuckGo():
@@ -159,13 +159,13 @@ def main():
     parser = argparse.ArgumentParser()
     required = parser.add_argument_group('required arguments')
     optional = parser.add_argument_group('optional arguments')
-    required.add_argument('--query', dest='query', required=True, help='')
-    optional.add_argument('--npages', dest='npages', type=int, default=0, help='')
-    optional.add_argument('--duckduckgo', dest='duckduckgo', action='store_const', const=DuckDuckGo(), default=False, help='')
-    optional.add_argument('--google', dest='google', action='store_const', const=Google(), default=False, help='')
-    optional.add_argument('--languages', dest='langs', default='en_US', help='')
-    optional.add_argument('--print', dest='to_print', action='store_true', default=False, help='')
-    optional.add_argument('--output', dest='output', default=False, help='')
+    required.add_argument('--query', dest='query', required=True, help='Query string to search.')
+    optional.add_argument('--npages', dest='npages', type=int, default=0, help='Number of result pages to collect.')
+    optional.add_argument('--duckduckgo', dest='duckduckgo', action='store_const', const=DuckDuckGo(), default=False, help='Use DuckDuckGo (both will be used if none is selected).')
+    optional.add_argument('--google', dest='google', action='store_const', const=Google(), default=False, help='Use Google (both will be used if none is selected).')
+    optional.add_argument('--languages', dest='langs', default='en_US', help='Search language code (default: en_US)')
+    optional.add_argument('--print', dest='to_print', action='store_true', default=False, help='Print results.')
+    optional.add_argument('--output', dest='output', default=False, help='Save results into a given file.')
     args = parser.parse_args()
     query = args.query
     npages = args.npages
